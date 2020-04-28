@@ -209,10 +209,10 @@ input * xkb_layout "gb,us"
 input * xkb_options "grp:toggle"
 
 # Screen lock
-set $lock swaylock -c 000000 && sleep 0.01
+set $lock swaylock -c 000000 -f && sleep 0.05
 exec swayidle -w \
         timeout 300 '$lock' \
-        timeout 310 'swaymsg "output * dpms off"' \
+        timeout 305 'swaymsg "output * dpms off"' \
              resume 'swaymsg "output * dpms on"' \
         before-sleep '$lock'
 
