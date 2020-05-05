@@ -219,7 +219,7 @@ exec swayidle -w \
 bindsym $mod+z exec $lock
 
 # Redshift
-exec redshift -m wayland -t 5600:4000
+exec redshift -m wayland -l 51.56:0.02 -t 5600:4000
 
 # idle inhibit for full screen
 for_window [class="mednafen"] inhibit_idle fullscreen
