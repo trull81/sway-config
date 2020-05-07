@@ -35,7 +35,7 @@ output * bg /usr/share/backgrounds/sway/death_darksiders_2_game.jpg fill
 
     # Kill focused window
     bindsym $mod+Shift+q kill
-    bindsym Mod1+F4 kill
+#    bindsym Mod1+F4 kill
     bindsym $mod+F4 kill
 
     # Start your launcher
@@ -222,9 +222,10 @@ bindsym $mod+z exec $lock
 exec redshift -m wayland -l 51.56:0.02 -t 5600:4000
 
 # idle inhibit for full screen
-for_window [class="mednafen"] inhibit_idle fullscreen
-for_window [class="mame"] inhibit_idle fullscreen
-for_window [class="mupen64plus"] inhibit_idle fullscreen
+for_window [class="mednafen"] inhibit_idle focus
+for_window [class="mame"] inhibit_idle focus
+for_window [class="mupen64plus"] inhibit_idle focus
+for_window [class="vlc"] inhibit_idle focus
 
 # Notifications
 exec mako
