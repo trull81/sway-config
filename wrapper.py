@@ -34,6 +34,9 @@ def get_cmd_output(cmd):
 def get_brightness():
     return "🔆: " + get_cmd_output("brightnessctl | awk '/Current/ {print $4}' | sed 's/[()]//g'") + " "
 
+def get_battery():
+    return "🔋 " + get_cmd_output("upower --show-info /org/freedesktop/UPower/devices/battery_BAT0 | awk '/state|percentage/ {print $2}'").replace("\n", " ") + " "
+
 def print_line(message):
     """ Non-buffered printing to stdout. """
     sys.stdout.write(message + '\n')
@@ -69,5 +72,6 @@ if __name__ == '__main__':
         # insert information into the start of the json, but could be anywhere
         # CHANGE THIS LINE TO INSERT SOMETHING ELSE
         j.insert(0, {'full_text' : '%s' % get_brightness(), 'name' : 'brightness'})
+        j.insert(0, {'full_text' : '%s' % get_battery(), 'name' : 'battery'})
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))
