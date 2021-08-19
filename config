@@ -225,11 +225,12 @@ exec swayidle -w \
 
 bindsym $mod+z exec $lock
 
-# Redshift
-exec redshift -m wayland -l 51.56:0.02 -t 5400:3500
+# Gammastep
+exec gammastep -l 51.56:0.02 -t 5400:3500
 
 # idle inhibit for full screen
 for_window [class="mednafen"] inhibit_idle focus
+for_window [class="supertuxkart"] inhibit_idle focus
 for_window [class="mame"] inhibit_idle focus
 for_window [class="mupen64plus"] inhibit_idle focus
 for_window [class="vlc"] inhibit_idle focus
